@@ -25,8 +25,7 @@ df['RSI'] = ta.RSI(np.array(df['close']), timeperiod = n)
 df['SMA'] = df['close'].rolling(window = n).mean()
 df['Corr'] = df['SMA'].rolling(window = n).corr(df['close'])
 df['SAR'] = ta.SAR(np.array(df['high']), np.array(df['low']), 0.2,0.2)
-df['ADX'] = ta.ADX(np.array(df['high']), np.array(df['low']), \ 
-                    np.array(df['close']), timeperiod = n)
+df['ADX'] = ta.ADX(np.array(df['high']), np.array(df['low']), np.array(df['close']), timeperiod = n)
 df['Return'] = np.log(df['Open'] / df['Open'].shift(1))
 
 print(df.head())
